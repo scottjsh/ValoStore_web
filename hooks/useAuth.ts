@@ -1,5 +1,6 @@
 import { AuthTokensResponse } from "pages/api/getAuthTokens";
 import { useEffect, useState } from "react";
+import { basePath } from "next.config"
 
 const __store_LocalStorageKey = "__store_RiotAuthBundle";
 
@@ -12,7 +13,7 @@ export const useAuth = () => {
 
   const createAuthBundle = async (username: string, password: string, region: string) => {
     setLoading(true);
-    const getAuthTokensResponse = await fetch("/api/getAuthTokens", {
+    const getAuthTokensResponse = await fetch(basePath+"/api/getAuthTokens", {
       body: JSON.stringify({ username, password, region }),
       method: "POST",
       headers: { "Content-Type": "application/json" },
