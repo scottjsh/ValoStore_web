@@ -10,13 +10,20 @@ export const useAuth = () => {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
-  const createAuthBundle = async (username: string, password: string, region: string) => {
+  const createAuthBundle = async (
+    username: string,
+    password: string,
+    region: string
+  ) => {
     setLoading(true);
-    const getAuthTokensResponse = await fetch("/api/getAuthTokens", {
-      body: JSON.stringify({ username, password, region }),
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-    });
+    const getAuthTokensResponse = await fetch(
+      "/ValoStore_web/api/getAuthTokens",
+      {
+        body: JSON.stringify({ username, password, region }),
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+      }
+    );
     if (getAuthTokensResponse.status != 200) {
       setError(await getAuthTokensResponse.text());
       return;
