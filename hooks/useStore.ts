@@ -16,7 +16,7 @@ export const useStore = (authBundle: RiotAuthBundle) => {
     }
 
     const getStore = async () => {
-      const storeResponse = await fetch("/ValoStore_web/api/getUserStore", {
+      const storeResponse = await fetch("/api/getUserStore", {
         body: JSON.stringify(authBundle),
         method: "POST",
         headers: { "Content-Type": "application/json" },

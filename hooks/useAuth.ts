@@ -16,14 +16,11 @@ export const useAuth = () => {
     region: string
   ) => {
     setLoading(true);
-    const getAuthTokensResponse = await fetch(
-      "/ValoStore_web/api/getAuthTokens",
-      {
-        body: JSON.stringify({ username, password, region }),
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-      }
-    );
+    const getAuthTokensResponse = await fetch("/api/getAuthTokens", {
+      body: JSON.stringify({ username, password, region }),
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+    });
     if (getAuthTokensResponse.status != 200) {
       setError(await getAuthTokensResponse.text());
       return;
