@@ -2,7 +2,6 @@
   "name": "valostore",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://whitesky.kr/ValoStore_web",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
